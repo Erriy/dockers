@@ -1,0 +1,26 @@
+{
+    "log": {
+        "loglevel": "debug"
+    },
+    "inbounds": [{
+        "port": 81,
+        "listen": "0.0.0.0",
+        "protocol": "vmess",
+        "settings": {
+            "clients": [{
+                "id": "43ded74a-5c37-11ea-b92a-001500ecdeb6",
+                "alterId": 64
+            }]
+        },
+        "streamSettings": {
+            "network": "ws",
+            "wsSettings": {
+                "path": "/api/v1/update"
+            }
+        }
+    }],
+    "outbounds": [{
+        "protocol": "freedom",
+        "settings": {}
+    }]
+}
