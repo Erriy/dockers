@@ -4,6 +4,7 @@ services:
 
   v2ray:
     image: v2ray/official
+    restart: always
     container_name: v2ray
     volumes:
       - ./v2ray/config.json:/etc/v2ray/config.json
