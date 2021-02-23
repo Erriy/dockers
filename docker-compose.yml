@@ -8,5 +8,18 @@ services:
     container_name: v2ray
     volumes:
       - ./v2ray/config.json:/etc/v2ray/config.json
+    expose:
+      - 81
+
+  nginx:
+    image: nginx:alpine
+    depends_on:
+      - v2ray
+    restart: always
+    volumes:
+      - ./v2ray/nginx.conf:/etc/nginx/nginx.conf
+      - ./v2ray/fullchain.pem:/fullchain.pem
+      - ./v2ray/privkey.pem:/privkey.pem
+    container_name: v2ray_nginx
     ports:
       - 81:81
